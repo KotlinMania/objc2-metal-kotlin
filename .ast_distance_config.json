@@ -1,0 +1,22 @@
+{
+  "type": "port",
+  "name": "objc2-metal-kotlin",
+  "source": {
+    "path": "tmp/objc2-metal/src",
+    "lang": "rust"
+  },
+  "target": {
+    "path": "src/commonMain/kotlin/io/github/kotlinmania/objc2metal",
+    "lang": "kotlin"
+  },
+  "checks": {
+    "deep": true,
+    "missing": true,
+    "todos": true,
+    "lint": true
+  },
+  "reexport_modules": [
+    "mod.rs",
+    "lib.rs"
+  ]
+}
