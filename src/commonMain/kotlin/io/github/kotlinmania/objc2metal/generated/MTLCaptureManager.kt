@@ -2,7 +2,7 @@
 package io.github.kotlinmania.objc2metal.generated
 
 import io.github.kotlinmania.objc2foundation.NSObject
-import io.github.kotlinmania.objc2foundation.NSURL
+import io.github.kotlinmania.objc2foundation.generated.NSURL
 
 /**
  * Capture error codes.
