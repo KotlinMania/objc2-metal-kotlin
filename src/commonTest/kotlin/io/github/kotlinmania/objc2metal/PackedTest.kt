@@ -7,7 +7,7 @@ import kotlin.test.assertEquals
 
 class PackedTest {
     @Test
-    fun testPackedFloat() {
+    fun test_packed_float() {
         assertEquals(
             "{_MTLPackedFloat4x3=[4{_MTLPackedFloat3=(?={?=fff}[3f])}]}",
             MTLPackedFloat4x3.ENCODING,
