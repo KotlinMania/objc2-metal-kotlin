@@ -26,8 +26,8 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "collectionsImmutable" }
 kotlinx-benchmark-runtime = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-runtime", version.ref = "kotlinxBenchmark" }
-objc2-foundation = { module = "io.github.kotlinmania:objc2-foundation-kotlin", version = "0.3.1" }
-bitflags = { module = "io.github.kotlinmania:bitflags-kotlin", version = "0.2.0" }
+objc2-foundation = { module = "io.github.kotlinmania:objc2-foundation-kotlin", version = "0.1.0" }
+bitflags = { module = "io.github.kotlinmania:bitflags-kotlin", version = "0.1.1" }
 
 [bundles]
 objc2metal-commonMain = [
