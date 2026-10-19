@@ -1,7 +1,6 @@
 // port-lint: source generated/MTLIntersectionFunctionTable.rs
 package io.github.kotlinmania.objc2metal.generated
 
-import io.github.kotlinmania.bitflags.BitFlags
 import io.github.kotlinmania.objc2foundation.NSCopying
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
@@ -12,11 +11,8 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
  * Signature defining what data is provided to an intersection function.
  */
 data class MTLIntersectionFunctionSignature(
-    override val rawValue: NSUInteger = 0uL,
-) : BitFlags<MTLIntersectionFunctionSignature, NSUInteger> {
-
-    override fun create(value: NSUInteger): MTLIntersectionFunctionSignature = MTLIntersectionFunctionSignature(value)
-
+    val rawValue: NSUInteger = 0uL,
+) {
     companion object {
         val None = MTLIntersectionFunctionSignature(0uL)
         val Instancing = MTLIntersectionFunctionSignature(1uL shl 0)
@@ -40,10 +36,10 @@ open class MTLIntersectionFunctionTableDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLIntersectionFunctionTableDescriptor
 
     open fun functionCount(): NSUInteger = 0uL
+
     open fun setFunctionCount(function_count: NSUInteger) {}
 
     override fun copy(): Any = this
@@ -53,7 +49,9 @@ open class MTLIntersectionFunctionTableDescriptor :
             MTLIntersectionFunctionTableDescriptor()
 
         fun init(): MTLIntersectionFunctionTableDescriptor = MTLIntersectionFunctionTableDescriptor()
+
         fun new(): MTLIntersectionFunctionTableDescriptor = MTLIntersectionFunctionTableDescriptor()
+
         fun default_retained(): MTLIntersectionFunctionTableDescriptor = new()
     }
 }

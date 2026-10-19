@@ -114,23 +114,27 @@ open class MTLBufferLayoutDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLBufferLayoutDescriptor
 
     open fun stride(): NSUInteger = 0uL
+
     open fun setStride(stride: NSUInteger) {}
 
     open fun stepFunction(): MTLStepFunction = MTLStepFunction.Constant
+
     open fun setStepFunction(step_function: MTLStepFunction) {}
 
     open fun stepRate(): NSUInteger = 1uL
+
     open fun setStepRate(step_rate: NSUInteger) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLBufferLayoutDescriptor = MTLBufferLayoutDescriptor()
+
         fun new(): MTLBufferLayoutDescriptor = MTLBufferLayoutDescriptor()
+
         fun default_retained(): MTLBufferLayoutDescriptor = new()
     }
 }
@@ -141,7 +145,6 @@ open class MTLBufferLayoutDescriptor :
 open class MTLBufferLayoutDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(index: NSUInteger): MTLBufferLayoutDescriptor =
         MTLBufferLayoutDescriptor()
 
@@ -152,6 +155,7 @@ open class MTLBufferLayoutDescriptorArray :
 
     companion object {
         fun init(): MTLBufferLayoutDescriptorArray = MTLBufferLayoutDescriptorArray()
+
         fun new(): MTLBufferLayoutDescriptorArray = MTLBufferLayoutDescriptorArray()
     }
 }
@@ -163,23 +167,27 @@ open class MTLAttributeDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLAttributeDescriptor
 
     open fun format(): MTLAttributeFormat = MTLAttributeFormat.Invalid
+
     open fun setFormat(format: MTLAttributeFormat) {}
 
     open fun offset(): NSUInteger = 0uL
+
     open fun setOffset(offset: NSUInteger) {}
 
     open fun bufferIndex(): NSUInteger = 0uL
+
     open fun setBufferIndex(buffer_index: NSUInteger) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLAttributeDescriptor = MTLAttributeDescriptor()
+
         fun new(): MTLAttributeDescriptor = MTLAttributeDescriptor()
+
         fun default_retained(): MTLAttributeDescriptor = new()
     }
 }
@@ -190,7 +198,6 @@ open class MTLAttributeDescriptor :
 open class MTLAttributeDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(index: NSUInteger): MTLAttributeDescriptor =
         MTLAttributeDescriptor()
 
@@ -201,6 +208,7 @@ open class MTLAttributeDescriptorArray :
 
     companion object {
         fun init(): MTLAttributeDescriptorArray = MTLAttributeDescriptorArray()
+
         fun new(): MTLAttributeDescriptorArray = MTLAttributeDescriptorArray()
     }
 }
@@ -212,16 +220,18 @@ open class MTLStageInputOutputDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLStageInputOutputDescriptor
 
     open fun layouts(): MTLBufferLayoutDescriptorArray = MTLBufferLayoutDescriptorArray()
+
     open fun attributes(): MTLAttributeDescriptorArray = MTLAttributeDescriptorArray()
 
     open fun indexType(): MTLIndexType = MTLIndexType.UInt16
+
     open fun setIndexType(index_type: MTLIndexType) {}
 
     open fun indexBufferIndex(): NSUInteger = 0uL
+
     open fun setIndexBufferIndex(index_buffer_index: NSUInteger) {}
 
     open fun reset() {}
@@ -230,7 +240,9 @@ open class MTLStageInputOutputDescriptor :
 
     companion object {
         fun stageInputOutputDescriptor(): MTLStageInputOutputDescriptor = MTLStageInputOutputDescriptor()
+
         fun init(): MTLStageInputOutputDescriptor = MTLStageInputOutputDescriptor()
+
         fun new(): MTLStageInputOutputDescriptor = MTLStageInputOutputDescriptor()
     }
 }

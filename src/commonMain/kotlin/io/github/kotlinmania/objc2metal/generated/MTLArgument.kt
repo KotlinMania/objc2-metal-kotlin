@@ -11,7 +11,9 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
 /**
  * The data type for an input to a function or argument buffer.
  */
-data class MTLDataType(val rawValue: NSUInteger) {
+data class MTLDataType(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -117,7 +119,9 @@ data class MTLDataType(val rawValue: NSUInteger) {
 /**
  * The type of a resource binding.
  */
-data class MTLBindingType(val rawValue: NSInteger) {
+data class MTLBindingType(
+    val rawValue: NSInteger,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -139,7 +143,9 @@ data class MTLBindingType(val rawValue: NSInteger) {
 /**
  * The type for an input to a MTLRenderPipelineState or a MTLComputePipelineState.
  */
-data class MTLArgumentType(val rawValue: NSUInteger) {
+data class MTLArgumentType(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -157,7 +163,9 @@ data class MTLArgumentType(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLBindingAccess(val rawValue: NSUInteger) {
+data class MTLBindingAccess(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -179,69 +187,110 @@ open class MTLType : NSObject() {
 
 open class MTLStructMember : NSObject() {
     open fun name(): NSString = NSString("")
+
     open fun offset(): NSUInteger = 0uL
+
     open fun dataType(): MTLDataType = MTLDataType.None
+
     open fun structType(): MTLStructType? = null
+
     open fun arrayType(): MTLArrayType? = null
+
     open fun textureReferenceType(): MTLTextureReferenceType? = null
+
     open fun pointerType(): MTLPointerType? = null
+
     open fun argumentIndex(): NSUInteger = 0uL
 }
 
 open class MTLStructType : MTLType() {
     open fun members(): NSArray<MTLStructMember> = NSArray()
+
     open fun memberByName(name: NSString): MTLStructMember? = null
 }
 
 open class MTLArrayType : MTLType() {
     open fun elementType(): MTLDataType = MTLDataType.None
+
     open fun arrayLength(): NSUInteger = 0uL
+
     open fun stride(): NSUInteger = 0uL
+
     open fun elementStructType(): MTLStructType? = null
+
     open fun elementArrayType(): MTLArrayType? = null
 }
 
 open class MTLTextureReferenceType : MTLType() {
     open fun textureDataType(): MTLDataType = MTLDataType.None
+
     open fun textureType(): NSUInteger = 0uL
+
     open fun access(): MTLBindingAccess = MTLBindingAccess.ReadOnly
+
     open fun isDepthTexture(): Boolean = false
 }
 
 open class MTLPointerType : MTLType() {
     open fun elementType(): MTLDataType = MTLDataType.None
+
     open fun access(): MTLBindingAccess = MTLBindingAccess.ReadOnly
+
     open fun alignment(): NSUInteger = 0uL
+
     open fun dataSize(): NSUInteger = 0uL
+
     open fun elementIsArgumentBuffer(): Boolean = false
+
     open fun elementStructType(): MTLStructType? = null
+
     open fun elementArrayType(): MTLArrayType? = null
 }
 
 open class MTLArgument : NSObject() {
     open fun name(): NSString = NSString("")
+
     open fun type(): MTLArgumentType = MTLArgumentType.Buffer
+
     open fun access(): MTLArgumentAccess = MTLArgumentAccess.ReadOnly
+
     open fun index(): NSUInteger = 0uL
+
     open fun isActive(): Boolean = true
+
     open fun bufferAlignment(): NSUInteger = 0uL
+
     open fun bufferDataSize(): NSUInteger = 0uL
+
     open fun bufferDataType(): MTLDataType = MTLDataType.None
+
     open fun bufferStructType(): MTLStructType? = null
+
     open fun bufferPointerType(): MTLPointerType? = null
+
     open fun threadgroupMemoryAlignment(): NSUInteger = 0uL
+
     open fun threadgroupMemoryDataSize(): NSUInteger = 0uL
+
     open fun textureType(): NSUInteger = 0uL
+
     open fun textureDataType(): MTLDataType = MTLDataType.None
+
     open fun isDepthTexture(): Boolean = false
+
     open fun arrayLength(): NSUInteger = 0uL
 }
 
 interface MTLBinding : NSObjectProtocol {
     fun name(): NSString
+
     fun type(): MTLBindingType
+
     fun access(): MTLBindingAccess
+
     fun index(): NSUInteger
+
     fun isUsed(): Boolean
+
     fun argument(): Boolean
 }

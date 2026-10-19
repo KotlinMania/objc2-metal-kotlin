@@ -80,59 +80,75 @@ open class MTLSamplerDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLSamplerDescriptor
 
     open fun minFilter(): MTLSamplerMinMagFilter = MTLSamplerMinMagFilter.Nearest
+
     open fun setMinFilter(min_filter: MTLSamplerMinMagFilter) {}
 
     open fun magFilter(): MTLSamplerMinMagFilter = MTLSamplerMinMagFilter.Nearest
+
     open fun setMagFilter(mag_filter: MTLSamplerMinMagFilter) {}
 
     open fun mipFilter(): MTLSamplerMipFilter = MTLSamplerMipFilter.NotMipmapped
+
     open fun setMipFilter(mip_filter: MTLSamplerMipFilter) {}
 
     open fun maxAnisotropy(): NSUInteger = 1uL
+
     open fun setMaxAnisotropy(max_anisotropy: NSUInteger) {}
 
     open fun sAddressMode(): MTLSamplerAddressMode = MTLSamplerAddressMode.ClampToEdge
+
     open fun setSAddressMode(s_address_mode: MTLSamplerAddressMode) {}
 
     open fun tAddressMode(): MTLSamplerAddressMode = MTLSamplerAddressMode.ClampToEdge
+
     open fun setTAddressMode(t_address_mode: MTLSamplerAddressMode) {}
 
     open fun rAddressMode(): MTLSamplerAddressMode = MTLSamplerAddressMode.ClampToEdge
+
     open fun setRAddressMode(r_address_mode: MTLSamplerAddressMode) {}
 
     open fun borderColor(): MTLSamplerBorderColor = MTLSamplerBorderColor.TransparentBlack
+
     open fun setBorderColor(border_color: MTLSamplerBorderColor) {}
 
     open fun normalizedCoordinates(): Boolean = true
+
     open fun setNormalizedCoordinates(normalized_coordinates: Boolean) {}
 
     open fun lodMinClamp(): Float = 0.0f
+
     open fun setLodMinClamp(lod_min_clamp: Float) {}
 
     open fun lodMaxClamp(): Float = Float.MAX_VALUE
+
     open fun setLodMaxClamp(lod_max_clamp: Float) {}
 
     open fun lodAverage(): Boolean = false
+
     open fun setLodAverage(lod_average: Boolean) {}
 
     open fun compareFunction(): MTLCompareFunction = MTLCompareFunction.Never
+
     open fun setCompareFunction(compare_function: MTLCompareFunction) {}
 
     open fun supportArgumentBuffers(): Boolean = false
+
     open fun setSupportArgumentBuffers(support_argument_buffers: Boolean) {}
 
     open fun label(): NSString? = null
+
     open fun setLabel(label: NSString?) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLSamplerDescriptor = MTLSamplerDescriptor()
+
         fun new(): MTLSamplerDescriptor = MTLSamplerDescriptor()
+
         fun default_retained(): MTLSamplerDescriptor = new()
     }
 }
@@ -142,6 +158,8 @@ open class MTLSamplerDescriptor :
  */
 interface MTLSamplerState : NSObjectProtocol {
     fun label(): NSString?
+
     fun device(): MTLDevice
+
     fun gpuResourceID(): MTLResourceID
 }

@@ -2,7 +2,6 @@
 package io.github.kotlinmania.objc2metal.generated
 
 import io.github.kotlinmania.objc2foundation.NSObject
-import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSUInteger
 
 /**
@@ -23,7 +22,9 @@ data class MTLClearColor(
 /**
  * Options for loadAction property.
  */
-data class MTLLoadAction(val rawValue: NSUInteger) {
+data class MTLLoadAction(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -37,7 +38,9 @@ data class MTLLoadAction(val rawValue: NSUInteger) {
 /**
  * Options for storeAction property.
  */
-data class MTLStoreAction(val rawValue: NSUInteger) {
+data class MTLStoreAction(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -54,7 +57,9 @@ data class MTLStoreAction(val rawValue: NSUInteger) {
 /**
  * Options for storeActionOptions property.
  */
-data class MTLStoreActionOptions(val rawValue: NSUInteger) {
+data class MTLStoreActionOptions(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -67,7 +72,9 @@ data class MTLStoreActionOptions(val rawValue: NSUInteger) {
 /**
  * Controls the MSAA depth resolve operation.
  */
-data class MTLMultisampleDepthResolveFilter(val rawValue: NSUInteger) {
+data class MTLMultisampleDepthResolveFilter(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -81,7 +88,9 @@ data class MTLMultisampleDepthResolveFilter(val rawValue: NSUInteger) {
 /**
  * Controls the MSAA stencil resolve operation.
  */
-data class MTLMultisampleStencilResolveFilter(val rawValue: NSUInteger) {
+data class MTLMultisampleStencilResolveFilter(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -137,9 +146,7 @@ open class MTLRenderPassStencilAttachmentDescriptor : MTLRenderPassAttachmentDes
 open class MTLRenderPassColorAttachmentDescriptorArray : NSObject() {
     private val attachments = mutableMapOf<NSUInteger, MTLRenderPassColorAttachmentDescriptor>()
 
-    fun objectAtIndexedSubscript(attachmentIndex: NSUInteger): MTLRenderPassColorAttachmentDescriptor {
-        return attachments.getOrPut(attachmentIndex) { MTLRenderPassColorAttachmentDescriptor() }
-    }
+    fun objectAtIndexedSubscript(attachmentIndex: NSUInteger): MTLRenderPassColorAttachmentDescriptor = attachments.getOrPut(attachmentIndex) { MTLRenderPassColorAttachmentDescriptor() }
 
     fun setObjectAtIndexedSubscript(
         attachment: MTLRenderPassColorAttachmentDescriptor?,
@@ -169,11 +176,10 @@ open class MTLRenderPassSampleBufferAttachmentDescriptorArray : NSObject() {
 
     fun objectAtIndexedSubscript(
         attachmentIndex: NSUInteger,
-    ): MTLRenderPassSampleBufferAttachmentDescriptor {
-        return attachments.getOrPut(attachmentIndex) {
+    ): MTLRenderPassSampleBufferAttachmentDescriptor =
+        attachments.getOrPut(attachmentIndex) {
             MTLRenderPassSampleBufferAttachmentDescriptor()
         }
-    }
 
     fun setObjectAtIndexedSubscript(
         attachment: MTLRenderPassSampleBufferAttachmentDescriptor?,

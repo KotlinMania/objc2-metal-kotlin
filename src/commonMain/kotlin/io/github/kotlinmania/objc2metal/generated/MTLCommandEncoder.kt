@@ -8,7 +8,9 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
 /**
  * Describes how a resource will be used by a shader through an argument buffer.
  */
-data class MTLResourceUsage(val rawValue: NSUInteger) {
+data class MTLResourceUsage(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -22,7 +24,9 @@ data class MTLResourceUsage(val rawValue: NSUInteger) {
 /**
  * Describes the types of resources that a barrier operates on.
  */
-data class MTLBarrierScope(val rawValue: NSUInteger) {
+data class MTLBarrierScope(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -38,10 +42,16 @@ data class MTLBarrierScope(val rawValue: NSUInteger) {
  */
 interface MTLCommandEncoder : NSObjectProtocol {
     fun device(): MTLDevice
+
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun endEncoding()
+
     fun insertDebugSignpost(string: NSString)
+
     fun pushDebugGroup(string: NSString)
+
     fun popDebugGroup()
 }

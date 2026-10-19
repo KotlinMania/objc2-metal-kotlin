@@ -56,31 +56,37 @@ open class MTLStencilDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLStencilDescriptor
 
     open fun stencilCompareFunction(): MTLCompareFunction = MTLCompareFunction.Always
+
     open fun setStencilCompareFunction(stencil_compare_function: MTLCompareFunction) {}
 
     open fun stencilFailureOperation(): MTLStencilOperation = MTLStencilOperation.Keep
+
     open fun setStencilFailureOperation(stencil_failure_operation: MTLStencilOperation) {}
 
     open fun depthFailureOperation(): MTLStencilOperation = MTLStencilOperation.Keep
+
     open fun setDepthFailureOperation(depth_failure_operation: MTLStencilOperation) {}
 
     open fun depthStencilPassOperation(): MTLStencilOperation = MTLStencilOperation.Keep
+
     open fun setDepthStencilPassOperation(depth_stencil_pass_operation: MTLStencilOperation) {}
 
     open fun readMask(): UInt = 0u
+
     open fun setReadMask(read_mask: UInt) {}
 
     open fun writeMask(): UInt = 0u
+
     open fun setWriteMask(write_mask: UInt) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLStencilDescriptor = MTLStencilDescriptor()
+
         fun new(): MTLStencilDescriptor = MTLStencilDescriptor()
     }
 }
@@ -92,28 +98,33 @@ open class MTLDepthStencilDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLDepthStencilDescriptor
 
     open fun depthCompareFunction(): MTLCompareFunction = MTLCompareFunction.Always
+
     open fun setDepthCompareFunction(depth_compare_function: MTLCompareFunction) {}
 
     open fun isDepthWriteEnabled(): Boolean = false
+
     open fun setDepthWriteEnabled(depth_write_enabled: Boolean) {}
 
     open fun frontFaceStencil(): MTLStencilDescriptor = MTLStencilDescriptor()
+
     open fun setFrontFaceStencil(front_face_stencil: MTLStencilDescriptor?) {}
 
     open fun backFaceStencil(): MTLStencilDescriptor = MTLStencilDescriptor()
+
     open fun setBackFaceStencil(back_face_stencil: MTLStencilDescriptor?) {}
 
     open fun label(): NSString? = null
+
     open fun setLabel(label: NSString?) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLDepthStencilDescriptor = MTLDepthStencilDescriptor()
+
         fun new(): MTLDepthStencilDescriptor = MTLDepthStencilDescriptor()
     }
 }
@@ -123,5 +134,6 @@ open class MTLDepthStencilDescriptor :
  */
 interface MTLDepthStencilState : NSObjectProtocol {
     fun label(): NSString?
+
     fun device(): MTLDevice
 }

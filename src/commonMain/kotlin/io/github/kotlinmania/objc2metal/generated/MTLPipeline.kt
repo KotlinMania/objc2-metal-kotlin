@@ -46,16 +46,17 @@ open class MTLPipelineBufferDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLPipelineBufferDescriptor
 
     open fun mutability(): MTLMutability = MTLMutability.Default
+
     open fun setMutability(mutability: MTLMutability) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLPipelineBufferDescriptor = MTLPipelineBufferDescriptor()
+
         fun new(): MTLPipelineBufferDescriptor = MTLPipelineBufferDescriptor()
     }
 }
@@ -66,7 +67,6 @@ open class MTLPipelineBufferDescriptor :
 open class MTLPipelineBufferDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(buffer_index: NSUInteger): MTLPipelineBufferDescriptor =
         MTLPipelineBufferDescriptor()
 
@@ -77,6 +77,7 @@ open class MTLPipelineBufferDescriptorArray :
 
     companion object {
         fun init(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
+
         fun new(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
     }
 }

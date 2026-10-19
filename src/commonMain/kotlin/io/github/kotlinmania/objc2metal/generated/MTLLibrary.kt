@@ -2,6 +2,7 @@
 package io.github.kotlinmania.objc2metal.generated
 
 import io.github.kotlinmania.objc2foundation.NSArray
+import io.github.kotlinmania.objc2foundation.NSCopying
 import io.github.kotlinmania.objc2foundation.NSDictionary
 import io.github.kotlinmania.objc2foundation.NSInteger
 import io.github.kotlinmania.objc2foundation.NSObject
@@ -11,7 +12,9 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
 
 typealias MTLAutoreleasedArgument = Any
 
-data class MTLPatchType(val rawValue: NSUInteger) {
+data class MTLPatchType(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -22,7 +25,9 @@ data class MTLPatchType(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLFunctionType(val rawValue: NSUInteger) {
+data class MTLFunctionType(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -37,7 +42,9 @@ data class MTLFunctionType(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLLanguageVersion(val rawValue: NSUInteger) {
+data class MTLLanguageVersion(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -56,7 +63,9 @@ data class MTLLanguageVersion(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLLibraryType(val rawValue: NSInteger) {
+data class MTLLibraryType(
+    val rawValue: NSInteger,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -66,7 +75,9 @@ data class MTLLibraryType(val rawValue: NSInteger) {
     }
 }
 
-data class MTLLibraryOptimizationLevel(val rawValue: NSInteger) {
+data class MTLLibraryOptimizationLevel(
+    val rawValue: NSInteger,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -76,7 +87,9 @@ data class MTLLibraryOptimizationLevel(val rawValue: NSInteger) {
     }
 }
 
-data class MTLCompileSymbolVisibility(val rawValue: NSInteger) {
+data class MTLCompileSymbolVisibility(
+    val rawValue: NSInteger,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -86,7 +99,9 @@ data class MTLCompileSymbolVisibility(val rawValue: NSInteger) {
     }
 }
 
-data class MTLMathMode(val rawValue: NSInteger) {
+data class MTLMathMode(
+    val rawValue: NSInteger,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -97,7 +112,9 @@ data class MTLMathMode(val rawValue: NSInteger) {
     }
 }
 
-data class MTLMathFloatingPointFunctions(val rawValue: NSInteger) {
+data class MTLMathFloatingPointFunctions(
+    val rawValue: NSInteger,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -107,7 +124,9 @@ data class MTLMathFloatingPointFunctions(val rawValue: NSInteger) {
     }
 }
 
-data class MTLLibraryError(val rawValue: NSUInteger) {
+data class MTLLibraryError(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -123,62 +142,137 @@ data class MTLLibraryError(val rawValue: NSUInteger) {
 
 open class MTLVertexAttribute : NSObject() {
     open fun name(): NSString = NSString("")
+
     open fun attributeIndex(): NSUInteger = 0uL
+
     open fun attributeType(): MTLDataType = MTLDataType.None
+
     open fun isActive(): Boolean = true
+
     open fun isPatchData(): Boolean = false
+
     open fun isPatchControlPointData(): Boolean = false
 }
 
 open class MTLFunctionConstant : NSObject() {
     open fun name(): NSString = NSString("")
+
     open fun type(): MTLDataType = MTLDataType.None
+
     open fun index(): NSUInteger = 0uL
+
     open fun required(): Boolean = true
 }
 
-open class MTLCompileOptions : NSObject() {
+open class MTLCompileOptions :
+    NSObject(),
+    NSCopying,
+    NSObjectProtocol {
     typealias Result = MTLCompileOptions
 
-    var preprocessorMacros: NSDictionary<NSString, NSObject>? = null
-    var fastMathEnabled: Boolean = false
-    var languageVersion: MTLLanguageVersion = MTLLanguageVersion.Version3_0
-    var libraryType: MTLLibraryType = MTLLibraryType.Executable
-    var installName: NSString? = null
-    var libraries: NSArray<Any>? = null
-    var preserveInvariance: Boolean = false
-    var optimizationLevel: MTLLibraryOptimizationLevel = MTLLibraryOptimizationLevel.Default
-    var compileSymbolVisibility: MTLCompileSymbolVisibility = MTLCompileSymbolVisibility.Default
-    var allowReferencingUndefinedSymbols: Boolean = false
-    var maxTotalThreadsPerThreadgroup: NSUInteger = 0uL
-    var mathMode: MTLMathMode = MTLMathMode.Safe
-    var mathFloatingPointFunctions: MTLMathFloatingPointFunctions = MTLMathFloatingPointFunctions.Fast
+    open fun preprocessorMacros(): NSDictionary<NSString, NSObject>? = null
+
+    open fun setPreprocessorMacros(preprocessor_macros: NSDictionary<NSString, NSObject>?) {}
+
+    open fun fastMathEnabled(): Boolean = false
+
+    open fun setFastMathEnabled(fast_math_enabled: Boolean) {}
+
+    open fun mathMode(): MTLMathMode = MTLMathMode.Safe
+
+    open fun setMathMode(math_mode: MTLMathMode) {}
+
+    open fun mathFloatingPointFunctions(): MTLMathFloatingPointFunctions = MTLMathFloatingPointFunctions.Fast
+
+    open fun setMathFloatingPointFunctions(math_floating_point_functions: MTLMathFloatingPointFunctions) {}
+
+    open fun languageVersion(): MTLLanguageVersion = MTLLanguageVersion.Version3_0
+
+    open fun setLanguageVersion(language_version: MTLLanguageVersion) {}
+
+    open fun libraryType(): MTLLibraryType = MTLLibraryType.Executable
+
+    open fun setLibraryType(library_type: MTLLibraryType) {}
+
+    open fun installName(): NSString? = null
+
+    open fun setInstallName(install_name: NSString?) {}
+
+    open fun libraries(): NSArray<MTLDynamicLibrary>? = null
+
+    open fun setLibraries(libraries: NSArray<MTLDynamicLibrary>?) {}
+
+    open fun preserveInvariance(): Boolean = false
+
+    open fun setPreserveInvariance(preserve_invariance: Boolean) {}
+
+    open fun optimizationLevel(): MTLLibraryOptimizationLevel = MTLLibraryOptimizationLevel.Default
+
+    open fun setOptimizationLevel(optimization_level: MTLLibraryOptimizationLevel) {}
+
+    open fun compileSymbolVisibility(): MTLCompileSymbolVisibility = MTLCompileSymbolVisibility.Default
+
+    open fun setCompileSymbolVisibility(compile_symbol_visibility: MTLCompileSymbolVisibility) {}
+
+    open fun allowReferencingUndefinedSymbols(): Boolean = false
+
+    open fun setAllowReferencingUndefinedSymbols(allow_referencing_undefined_symbols: Boolean) {}
+
+    open fun maxTotalThreadsPerThreadgroup(): NSUInteger = 0uL
+
+    open fun setMaxTotalThreadsPerThreadgroup(max_total_threads_per_threadgroup: NSUInteger) {}
+
+    open fun enableLogging(): Boolean = false
+
+    open fun setEnableLogging(enable_logging: Boolean) {}
+
+    override fun copy(): Any = this
 
     companion object {
-        fun defaultRetained(): MTLCompileOptions = MTLCompileOptions()
+        fun init(): MTLCompileOptions = MTLCompileOptions()
+
+        fun new(): MTLCompileOptions = MTLCompileOptions()
+
+        fun defaultRetained(): MTLCompileOptions = new()
     }
 }
 
 interface MTLFunction : NSObjectProtocol {
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun device(): MTLDevice
+
     fun functionType(): MTLFunctionType
+
     fun patchType(): MTLPatchType
+
     fun patchControlPointCount(): NSInteger
+
     fun vertexAttributes(): NSArray<MTLVertexAttribute>?
+
     fun stageInputAttributes(): NSArray<MTLVertexAttribute>?
+
     fun name(): NSString
+
     fun functionConstantsDictionary(): NSDictionary<NSString, MTLFunctionConstant>
 }
 
 interface MTLLibrary : NSObjectProtocol {
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun device(): MTLDevice
+
     fun newFunctionWithName(functionName: NSString): MTLFunction?
+
     fun newFunctionWithName(name: NSString, constantValues: MTLFunctionConstantValues): MTLFunction?
+
     fun functionNames(): NSArray<NSString>
+
     fun type(): MTLLibraryType
+
     fun installName(): NSString?
 }

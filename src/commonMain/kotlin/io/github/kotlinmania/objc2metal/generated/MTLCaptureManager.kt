@@ -7,7 +7,9 @@ import io.github.kotlinmania.objc2foundation.generated.NSURL
 /**
  * Capture error codes.
  */
-data class MTLCaptureError(val rawValue: Long) {
+data class MTLCaptureError(
+    val rawValue: Long,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -21,7 +23,9 @@ data class MTLCaptureError(val rawValue: Long) {
 /**
  * The destination where you want the GPU trace to be captured to.
  */
-data class MTLCaptureDestination(val rawValue: Long) {
+data class MTLCaptureDestination(
+    val rawValue: Long,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"

@@ -20,9 +20,14 @@ open class MTLCommandQueueDescriptor : NSObject() {
  */
 interface MTLCommandQueue : NSObjectProtocol {
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun device(): MTLDevice
+
     fun commandBuffer(): MTLCommandBuffer?
+
     fun commandBufferWithUnretainedReferences(): MTLCommandBuffer?
+
     fun insertDebugCaptureBoundary()
 }

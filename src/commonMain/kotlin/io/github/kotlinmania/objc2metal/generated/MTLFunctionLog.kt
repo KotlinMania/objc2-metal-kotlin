@@ -1,10 +1,10 @@
 // port-lint: source generated/MTLFunctionLog.rs
 package io.github.kotlinmania.objc2metal.generated
 
-import io.github.kotlinmania.objc2foundation.NSFastEnumeration
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
+import io.github.kotlinmania.objc2foundation.generated.NSFastEnumeration
 import io.github.kotlinmania.objc2foundation.generated.NSURL
 
 /**
@@ -24,15 +24,20 @@ data class MTLFunctionLogType(
 /**
  * Container for log items.
  */
-interface MTLLogContainer : NSObjectProtocol, NSFastEnumeration
+interface MTLLogContainer :
+    NSObjectProtocol,
+    NSFastEnumeration
 
 /**
  * Debug location for a function log.
  */
 interface MTLFunctionLogDebugLocation : NSObjectProtocol {
     fun functionName(): NSString?
+
     fun URL(): NSURL?
+
     fun line(): NSUInteger
+
     fun column(): NSUInteger
 }
 
@@ -41,7 +46,10 @@ interface MTLFunctionLogDebugLocation : NSObjectProtocol {
  */
 interface MTLFunctionLog : NSObjectProtocol {
     fun type(): MTLFunctionLogType
+
     fun encoderLabel(): NSString?
+
     fun function(): MTLFunction?
+
     fun debugLocation(): MTLFunctionLogDebugLocation?
 }

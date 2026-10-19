@@ -1,11 +1,12 @@
 // port-lint: source generated/MTLEvent.rs
 package io.github.kotlinmania.objc2metal.generated
 
-import io.github.kotlinmania.objc2foundation.NSCoding
+import io.github.kotlinmania.objc2foundation.NSCoder
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
-import io.github.kotlinmania.objc2foundation.NSSecureCoding
 import io.github.kotlinmania.objc2foundation.NSString
+import io.github.kotlinmania.objc2foundation.generated.NSCoding
+import io.github.kotlinmania.objc2foundation.generated.NSSecureCoding
 
 /**
  * Protocol for Metal events.
@@ -62,8 +63,11 @@ open class MTLSharedEventHandle :
     NSObject(),
     NSCoding,
     NSSecureCoding {
-
     open fun label(): NSString? = null
+
+    override fun encodeWithCoder(coder: NSCoder) {}
+
+    override fun initWithCoder(coder: NSCoder): Any? = this
 
     companion object {
         fun init(): MTLSharedEventHandle = MTLSharedEventHandle()

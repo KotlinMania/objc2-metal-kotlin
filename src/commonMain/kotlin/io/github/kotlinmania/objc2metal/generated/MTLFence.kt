@@ -6,6 +6,8 @@ import io.github.kotlinmania.objc2foundation.NSString
 
 interface MTLFence : NSObjectProtocol {
     fun device(): MTLDevice
+
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
 }

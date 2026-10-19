@@ -2,12 +2,12 @@
 package io.github.kotlinmania.objc2metal.generated
 
 import io.github.kotlinmania.objc2foundation.NSCopying
-import io.github.kotlinmania.objc2foundation.NSErrorDomain
 import io.github.kotlinmania.objc2foundation.NSInteger
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
+import io.github.kotlinmania.objc2foundation.generated.NSErrorDomain
 
 /**
  * Priority for MTLIOCommandQueue.
@@ -62,9 +62,13 @@ data class MTLIOError(
  */
 interface MTLIOCommandQueue : NSObjectProtocol {
     fun enqueueBarrier()
+
     fun commandBuffer(): MTLIOCommandBuffer
+
     fun commandBufferWithUnretainedReferences(): MTLIOCommandBuffer
+
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
 }
 
@@ -87,6 +91,7 @@ interface MTLIOScratchBufferAllocator : NSObjectProtocol {
  */
 interface MTLIOFileHandle : NSObjectProtocol {
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
 }
 
@@ -97,28 +102,33 @@ open class MTLIOCommandQueueDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLIOCommandQueueDescriptor
 
     open fun maxCommandBufferCount(): NSUInteger = 0uL
+
     open fun setMaxCommandBufferCount(max_command_buffer_count: NSUInteger) {}
 
     open fun priority(): MTLIOPriority = MTLIOPriority.Normal
+
     open fun setPriority(priority: MTLIOPriority) {}
 
     open fun type(): MTLIOCommandQueueType = MTLIOCommandQueueType.Concurrent
+
     open fun setType(type: MTLIOCommandQueueType) {}
 
     open fun maxCommandsInFlight(): NSUInteger = 0uL
+
     open fun setMaxCommandsInFlight(max_commands_in_flight: NSUInteger) {}
 
     open fun scratchBufferAllocator(): MTLIOScratchBufferAllocator? = null
+
     open fun setScratchBufferAllocator(scratch_buffer_allocator: MTLIOScratchBufferAllocator?) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLIOCommandQueueDescriptor = MTLIOCommandQueueDescriptor()
+
         fun new(): MTLIOCommandQueueDescriptor = MTLIOCommandQueueDescriptor()
     }
 }

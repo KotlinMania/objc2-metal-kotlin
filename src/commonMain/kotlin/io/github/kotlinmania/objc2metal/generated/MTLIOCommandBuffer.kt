@@ -4,7 +4,6 @@ package io.github.kotlinmania.objc2metal.generated
 import io.github.kotlinmania.objc2foundation.NSInteger
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
-import io.github.kotlinmania.objc2foundation.NSUInteger
 
 /**
  * Status of an IO command buffer.
@@ -39,10 +38,14 @@ interface MTLIOCommandBuffer : NSObjectProtocol {
     fun error(): Any?
 
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
 
     fun enqueue()
+
     fun waitForCompletion()
+
     fun tryCancel()
+
     fun waitUntilCompleted()
 }

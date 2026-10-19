@@ -1,12 +1,12 @@
 // port-lint: source generated/MTLDevice.rs
 package io.github.kotlinmania.objc2metal.generated
 
+import io.github.kotlinmania.objc2foundation.NSArray
+import io.github.kotlinmania.objc2foundation.NSError
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
-import io.github.kotlinmania.objc2foundation.NSArray
-import io.github.kotlinmania.objc2foundation.NSError
 
 typealias MTLDeviceNotificationName = NSString
 typealias MTLDeviceNotificationHandler = (MTLDevice, MTLDeviceNotificationName) -> Unit
@@ -19,7 +19,9 @@ typealias MTLNewComputePipelineStateCompletionHandler = (Any?, NSError?) -> Unit
 typealias MTLNewComputePipelineStateWithReflectionCompletionHandler = (Any?, Any?, NSError?) -> Unit
 typealias MTLTimestamp = ULong
 
-data class MTLIOCompressionMethod(val rawValue: Long) {
+data class MTLIOCompressionMethod(
+    val rawValue: Long,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -31,7 +33,9 @@ data class MTLIOCompressionMethod(val rawValue: Long) {
     }
 }
 
-data class MTLFeatureSet(val rawValue: NSUInteger) {
+data class MTLFeatureSet(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -71,7 +75,9 @@ data class MTLFeatureSet(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLGPUFamily(val rawValue: Long) {
+data class MTLGPUFamily(
+    val rawValue: Long,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -95,7 +101,9 @@ data class MTLGPUFamily(val rawValue: Long) {
     }
 }
 
-data class MTLDeviceLocation(val rawValue: NSUInteger) {
+data class MTLDeviceLocation(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -106,7 +114,9 @@ data class MTLDeviceLocation(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLPipelineOption(val rawValue: NSUInteger) {
+data class MTLPipelineOption(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -117,7 +127,9 @@ data class MTLPipelineOption(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLReadWriteTextureTier(val rawValue: NSUInteger) {
+data class MTLReadWriteTextureTier(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -127,7 +139,9 @@ data class MTLReadWriteTextureTier(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLArgumentBuffersTier(val rawValue: NSUInteger) {
+data class MTLArgumentBuffersTier(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -136,7 +150,9 @@ data class MTLArgumentBuffersTier(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLSparseTextureRegionAlignmentMode(val rawValue: NSUInteger) {
+data class MTLSparseTextureRegionAlignmentMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -145,7 +161,9 @@ data class MTLSparseTextureRegionAlignmentMode(val rawValue: NSUInteger) {
     }
 }
 
-data class MTLSparsePageSize(val rawValue: Long) {
+data class MTLSparsePageSize(
+    val rawValue: Long,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -166,7 +184,9 @@ data class MTLAccelerationStructureSizes(
     }
 }
 
-data class MTLCounterSamplingPoint(val rawValue: NSUInteger) {
+data class MTLCounterSamplingPoint(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -198,29 +218,53 @@ open class MTLArchitecture : NSObject() {
 
 interface MTLDevice : NSObjectProtocol {
     fun name(): NSString
+
     fun registryID(): ULong
+
     fun isLowPower(): Boolean
+
     fun isHeadless(): Boolean
+
     fun isRemovable(): Boolean
+
     fun hasUnifiedMemory(): Boolean
+
     fun recommendedMaxWorkingSetSize(): ULong
+
     fun location(): MTLDeviceLocation
+
     fun locationNumber(): NSUInteger
+
     fun maxTransferRate(): ULong
+
     fun isDepth24Stencil8PixelFormatSupported(): Boolean
+
     fun readWriteTextureSupport(): MTLReadWriteTextureTier
+
     fun argumentBuffersSupport(): MTLArgumentBuffersTier
+
     fun supports32BitFloatFiltering(): Boolean
+
     fun supports32BitMSAA(): Boolean
+
     fun supportsQueryTextureLOD(): Boolean
+
     fun supportsBCTextureCompression(): Boolean
+
     fun supportsPullModelInterpolation(): Boolean
+
     fun supportsShaderBarycentricCoordinates(): Boolean
+
     fun currentAllocatedSize(): NSUInteger
+
     fun newCommandQueue(): MTLCommandQueue?
+
     fun newCommandQueue(maxCommandBufferCount: NSUInteger): MTLCommandQueue?
+
     fun newCommandQueue(descriptor: MTLCommandQueueDescriptor): MTLCommandQueue?
+
     fun newBufferWithLength(length: NSUInteger, options: MTLResourceOptions): MTLBuffer?
+
     fun newTextureWithDescriptor(descriptor: MTLTextureDescriptor): MTLTexture?
 }
 

@@ -1,9 +1,7 @@
 // port-lint: source generated/MTLComputeCommandEncoder.rs
 package io.github.kotlinmania.objc2metal.generated
 
-import io.github.kotlinmania.objc2foundation.NSRange
 import io.github.kotlinmania.objc2foundation.NSUInteger
-import io.github.kotlinmania.objc2metal.MTLSize
 
 data class MTLDispatchThreadgroupsIndirectArguments(
     val threadgroupsPerGrid: UIntArray = UIntArray(3),
@@ -19,9 +17,7 @@ data class MTLDispatchThreadgroupsIndirectArguments(
         return threadgroupsPerGrid.contentEquals(other.threadgroupsPerGrid)
     }
 
-    override fun hashCode(): Int {
-        return threadgroupsPerGrid.contentHashCode()
-    }
+    override fun hashCode(): Int = threadgroupsPerGrid.contentHashCode()
 }
 
 data class MTLStageInRegionIndirectArguments(
@@ -52,22 +48,36 @@ data class MTLStageInRegionIndirectArguments(
  */
 interface MTLComputeCommandEncoder : MTLCommandEncoder {
     fun dispatchType(): MTLDispatchType
+
     fun setComputePipelineState(state: MTLComputePipelineState)
+
     fun setBuffer(buffer: MTLBuffer?, offset: NSUInteger, index: NSUInteger)
+
     fun setBufferOffset(offset: NSUInteger, index: NSUInteger)
+
     fun setTexture(texture: MTLTexture?, index: NSUInteger)
+
     fun setSamplerState(sampler: Any?, index: NSUInteger)
+
     fun setThreadgroupMemoryLength(length: NSUInteger, atIndex: NSUInteger)
+
     fun dispatchThreadgroups(threadgroupsPerGrid: MTLSize, threadsPerThreadgroup: MTLSize)
+
     fun dispatchThreadgroupsWithIndirectBuffer(
         indirectBuffer: MTLBuffer,
         indirectBufferOffset: NSUInteger,
         threadsPerThreadgroup: MTLSize,
     )
+
     fun dispatchThreads(threadsPerGrid: MTLSize, threadsPerThreadgroup: MTLSize)
+
     fun updateFence(fence: Any)
+
     fun waitForFence(fence: Any)
+
     fun useResource(resource: MTLResource, usage: MTLResourceUsage)
+
     fun useHeap(heap: MTLHeap)
+
     fun memoryBarrier(scope: Any)
 }

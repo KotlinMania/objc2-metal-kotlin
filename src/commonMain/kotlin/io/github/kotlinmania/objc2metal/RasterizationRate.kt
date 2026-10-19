@@ -4,6 +4,7 @@ package io.github.kotlinmania.objc2metal
 import io.github.kotlinmania.objc2foundation.NSUInteger
 import io.github.kotlinmania.objc2metal.generated.MTLRasterizationRateLayerDescriptor
 import io.github.kotlinmania.objc2metal.generated.MTLRasterizationRateMapDescriptor
+import io.github.kotlinmania.objc2metal.generated.MTLSize
 
 fun rasterizationRateMapDescriptorWithScreenSize(
     screenSize: MTLSize,

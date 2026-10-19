@@ -2,7 +2,7 @@
 package io.github.kotlinmania.objc2metal.generated
 
 import io.github.kotlinmania.objc2foundation.NSInteger
-import io.github.kotlinmania.objc2foundation.NSNotificationName
+import io.github.kotlinmania.objc2foundation.generated.NSNotificationName
 
 typealias NSDeviceCertification = NSInteger
 
@@ -22,5 +22,6 @@ interface Sealed
  */
 interface NSProcessInfoNSDeviceCertification : Sealed {
     fun isDeviceCertifiedFor(performance_tier: NSDeviceCertification): Boolean
+
     fun hasPerformanceProfile(performance_profile: NSProcessPerformanceProfile): Boolean
 }

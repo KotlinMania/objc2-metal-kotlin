@@ -1,7 +1,6 @@
 // port-lint: source generated/MTLAccelerationStructureCommandEncoder.rs
 package io.github.kotlinmania.objc2metal.generated
 
-import io.github.kotlinmania.bitflags.BitFlags
 import io.github.kotlinmania.objc2foundation.NSCopying
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
@@ -11,12 +10,8 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
  * Controls the acceleration structure refit operation.
  */
 data class MTLAccelerationStructureRefitOptions(
-    override val rawValue: NSUInteger = 0uL,
-) : BitFlags<MTLAccelerationStructureRefitOptions, NSUInteger> {
-
-    override fun create(value: NSUInteger): MTLAccelerationStructureRefitOptions =
-        MTLAccelerationStructureRefitOptions(value)
-
+    val rawValue: NSUInteger = 0uL,
+) {
     companion object {
         val VertexData = MTLAccelerationStructureRefitOptions(1uL shl 0)
         val PerPrimitiveData = MTLAccelerationStructureRefitOptions(1uL shl 1)
@@ -33,13 +28,14 @@ open class MTLAccelerationStructurePassSampleBufferAttachmentDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLAccelerationStructurePassSampleBufferAttachmentDescriptor
 
     open fun startOfEncoderSampleIndex(): NSUInteger = 0uL
+
     open fun setStartOfEncoderSampleIndex(start_of_encoder_sample_index: NSUInteger) {}
 
     open fun endOfEncoderSampleIndex(): NSUInteger = 0uL
+
     open fun setEndOfEncoderSampleIndex(end_of_encoder_sample_index: NSUInteger) {}
 
     override fun copy(): Any = this
@@ -59,7 +55,6 @@ open class MTLAccelerationStructurePassSampleBufferAttachmentDescriptor :
 open class MTLAccelerationStructurePassSampleBufferAttachmentDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(attachment_index: NSUInteger): MTLAccelerationStructurePassSampleBufferAttachmentDescriptor =
         MTLAccelerationStructurePassSampleBufferAttachmentDescriptor()
 
@@ -84,7 +79,6 @@ open class MTLAccelerationStructurePassDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLAccelerationStructurePassDescriptor
 
     open fun sampleBufferAttachments(): MTLAccelerationStructurePassSampleBufferAttachmentDescriptorArray =
@@ -97,6 +91,7 @@ open class MTLAccelerationStructurePassDescriptor :
             MTLAccelerationStructurePassDescriptor()
 
         fun init(): MTLAccelerationStructurePassDescriptor = MTLAccelerationStructurePassDescriptor()
+
         fun new(): MTLAccelerationStructurePassDescriptor = MTLAccelerationStructurePassDescriptor()
     }
 }

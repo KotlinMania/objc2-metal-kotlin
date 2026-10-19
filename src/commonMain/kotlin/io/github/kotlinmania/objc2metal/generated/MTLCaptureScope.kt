@@ -9,9 +9,14 @@ import io.github.kotlinmania.objc2foundation.NSString
  */
 interface MTLCaptureScope : NSObjectProtocol {
     fun beginScope()
+
     fun endScope()
+
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun device(): MTLDevice
+
     fun commandQueue(): MTLCommandQueue?
 }

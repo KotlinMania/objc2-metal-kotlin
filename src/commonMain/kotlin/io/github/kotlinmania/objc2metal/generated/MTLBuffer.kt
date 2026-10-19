@@ -11,15 +11,22 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
  */
 interface MTLBuffer : MTLResource {
     fun length(): NSUInteger
+
     fun didModifyRange(range: NSRange)
+
     fun newTextureWithDescriptor(
         descriptor: MTLTextureDescriptor,
         offset: NSUInteger,
         bytesPerRow: NSUInteger,
     ): MTLTexture?
+
     fun addDebugMarker(marker: NSString, range: NSRange)
+
     fun removeAllDebugMarkers()
+
     fun remoteStorageBuffer(): MTLBuffer?
+
     fun newRemoteBufferViewForDevice(device: MTLDevice): MTLBuffer?
+
     fun gpuAddress(): ULong
 }

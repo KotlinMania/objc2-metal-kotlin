@@ -5,7 +5,6 @@ import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
-import io.github.kotlinmania.objc2metal.MTLSize
 
 open class MTLRasterizationRateSampleArray : NSObject()
 
@@ -22,9 +21,7 @@ open class MTLRasterizationRateLayerDescriptor : NSObject() {
 open class MTLRasterizationRateLayerArray : NSObject() {
     private val layers = mutableMapOf<NSUInteger, MTLRasterizationRateLayerDescriptor>()
 
-    fun objectAtIndexedSubscript(layerIndex: NSUInteger): MTLRasterizationRateLayerDescriptor? {
-        return layers[layerIndex]
-    }
+    fun objectAtIndexedSubscript(layerIndex: NSUInteger): MTLRasterizationRateLayerDescriptor? = layers[layerIndex]
 
     fun setObjectAtIndexedSubscript(
         layer: MTLRasterizationRateLayerDescriptor?,
@@ -70,8 +67,12 @@ open class MTLRasterizationRateMapDescriptor : NSObject() {
 
 interface MTLRasterizationRateMap : NSObjectProtocol {
     fun device(): MTLDevice
+
     fun label(): NSString?
+
     fun screenSize(): MTLSize
+
     fun physicalGranularity(): MTLSize
+
     fun layerCount(): NSUInteger
 }

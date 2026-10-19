@@ -3,30 +3,10 @@ package io.github.kotlinmania.objc2metal.generated
 
 import io.github.kotlinmania.objc2foundation.NSArray
 import io.github.kotlinmania.objc2foundation.NSCopying
-import io.github.kotlinmania.objc2foundation.NSError
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
-import io.github.kotlinmania.objc2metal.MTLArgument
-import io.github.kotlinmania.objc2metal.MTLBinaryArchive
-import io.github.kotlinmania.objc2metal.MTLBinding
-import io.github.kotlinmania.objc2metal.MTLDevice
-import io.github.kotlinmania.objc2metal.MTLDynamicLibrary
-import io.github.kotlinmania.objc2metal.MTLFunction
-import io.github.kotlinmania.objc2metal.MTLFunctionHandle
-import io.github.kotlinmania.objc2metal.MTLIntersectionFunctionTable
-import io.github.kotlinmania.objc2metal.MTLIntersectionFunctionTableDescriptor
-import io.github.kotlinmania.objc2metal.MTLLinkedFunctions
-import io.github.kotlinmania.objc2metal.MTLPipelineBufferDescriptorArray
-import io.github.kotlinmania.objc2metal.MTLPixelFormat
-import io.github.kotlinmania.objc2metal.MTLRenderStages
-import io.github.kotlinmania.objc2metal.MTLResourceID
-import io.github.kotlinmania.objc2metal.MTLShaderValidation
-import io.github.kotlinmania.objc2metal.MTLSize
-import io.github.kotlinmania.objc2metal.MTLVisibleFunctionTable
-import io.github.kotlinmania.objc2metal.MTLVisibleFunctionTableDescriptor
-import io.github.kotlinmania.objc2metal.MTLWinding
 
 /**
  * Blend factor applied to source and destination blend operations.
@@ -177,34 +157,42 @@ open class MTLRenderPipelineColorAttachmentDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLRenderPipelineColorAttachmentDescriptor
 
     open fun pixelFormat(): MTLPixelFormat = MTLPixelFormat.Invalid
+
     open fun setPixelFormat(pixel_format: MTLPixelFormat) {}
 
     open fun isBlendingEnabled(): Boolean = false
+
     open fun setBlendingEnabled(blending_enabled: Boolean) {}
 
     open fun sourceRGBBlendFactor(): MTLBlendFactor = MTLBlendFactor.One
+
     open fun setSourceRGBBlendFactor(source_rgb_blend_factor: MTLBlendFactor) {}
 
     open fun destinationRGBBlendFactor(): MTLBlendFactor = MTLBlendFactor.Zero
+
     open fun setDestinationRGBBlendFactor(destination_rgb_blend_factor: MTLBlendFactor) {}
 
     open fun rgbBlendOperation(): MTLBlendOperation = MTLBlendOperation.Add
+
     open fun setRgbBlendOperation(rgb_blend_operation: MTLBlendOperation) {}
 
     open fun sourceAlphaBlendFactor(): MTLBlendFactor = MTLBlendFactor.One
+
     open fun setSourceAlphaBlendFactor(source_alpha_blend_factor: MTLBlendFactor) {}
 
     open fun destinationAlphaBlendFactor(): MTLBlendFactor = MTLBlendFactor.Zero
+
     open fun setDestinationAlphaBlendFactor(destination_alpha_blend_factor: MTLBlendFactor) {}
 
     open fun alphaBlendOperation(): MTLBlendOperation = MTLBlendOperation.Add
+
     open fun setAlphaBlendOperation(alpha_blend_operation: MTLBlendOperation) {}
 
     open fun writeMask(): MTLColorWriteMask = MTLColorWriteMask.All
+
     open fun setWriteMask(write_mask: MTLColorWriteMask) {}
 
     override fun copy(): Any = this
@@ -224,19 +212,25 @@ open class MTLRenderPipelineColorAttachmentDescriptor :
 open class MTLRenderPipelineReflection :
     NSObject(),
     NSObjectProtocol {
-
     open fun vertexBindings(): NSArray<MTLBinding> = NSArray()
+
     open fun fragmentBindings(): NSArray<MTLBinding> = NSArray()
+
     open fun tileBindings(): NSArray<MTLBinding> = NSArray()
+
     open fun objectBindings(): NSArray<MTLBinding> = NSArray()
+
     open fun meshBindings(): NSArray<MTLBinding> = NSArray()
 
     open fun vertexArguments(): NSArray<MTLArgument>? = null
+
     open fun fragmentArguments(): NSArray<MTLArgument>? = null
+
     open fun tileArguments(): NSArray<MTLArgument>? = null
 
     companion object {
         fun init(): MTLRenderPipelineReflection = MTLRenderPipelineReflection()
+
         fun new(): MTLRenderPipelineReflection = MTLRenderPipelineReflection()
     }
 }
@@ -247,7 +241,6 @@ open class MTLRenderPipelineReflection :
 open class MTLRenderPipelineColorAttachmentDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(attachment_index: NSUInteger): MTLRenderPipelineColorAttachmentDescriptor =
         MTLRenderPipelineColorAttachmentDescriptor()
 
@@ -272,46 +265,57 @@ open class MTLRenderPipelineDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLRenderPipelineDescriptor
 
     open fun label(): NSString? = null
+
     open fun setLabel(label: NSString?) {}
 
     open fun vertexFunction(): MTLFunction? = null
+
     open fun setVertexFunction(vertex_function: MTLFunction?) {}
 
     open fun fragmentFunction(): MTLFunction? = null
+
     open fun setFragmentFunction(fragment_function: MTLFunction?) {}
 
     open fun vertexDescriptor(): MTLVertexDescriptor? = null
+
     open fun setVertexDescriptor(vertex_descriptor: MTLVertexDescriptor?) {}
 
     open fun sampleCount(): NSUInteger = 1uL
+
     open fun setSampleCount(sample_count: NSUInteger) {}
 
     open fun rasterSampleCount(): NSUInteger = 1uL
+
     open fun setRasterSampleCount(raster_sample_count: NSUInteger) {}
 
     open fun isAlphaToCoverageEnabled(): Boolean = false
+
     open fun setAlphaToCoverageEnabled(alpha_to_coverage_enabled: Boolean) {}
 
     open fun isAlphaToOneEnabled(): Boolean = false
+
     open fun setAlphaToOneEnabled(alpha_to_one_enabled: Boolean) {}
 
     open fun isRasterizationEnabled(): Boolean = true
+
     open fun setRasterizationEnabled(rasterization_enabled: Boolean) {}
 
     open fun maxVertexAmplificationCount(): NSUInteger = 1uL
+
     open fun setMaxVertexAmplificationCount(max_vertex_amplification_count: NSUInteger) {}
 
     open fun colorAttachments(): MTLRenderPipelineColorAttachmentDescriptorArray =
         MTLRenderPipelineColorAttachmentDescriptorArray()
 
     open fun depthAttachmentPixelFormat(): MTLPixelFormat = MTLPixelFormat.Invalid
+
     open fun setDepthAttachmentPixelFormat(depth_attachment_pixel_format: MTLPixelFormat) {}
 
     open fun stencilAttachmentPixelFormat(): MTLPixelFormat = MTLPixelFormat.Invalid
+
     open fun setStencilAttachmentPixelFormat(stencil_attachment_pixel_format: MTLPixelFormat) {}
 
     open fun inputPrimitiveTopology(): MTLPrimitiveTopologyClass =
@@ -327,9 +331,11 @@ open class MTLRenderPipelineDescriptor :
     ) {}
 
     open fun maxTessellationFactor(): NSUInteger = 16uL
+
     open fun setMaxTessellationFactor(max_tessellation_factor: NSUInteger) {}
 
     open fun isTessellationFactorScaleEnabled(): Boolean = false
+
     open fun setTessellationFactorScaleEnabled(tessellation_factor_scale_enabled: Boolean) {}
 
     open fun tessellationFactorFormat(): MTLTessellationFactorFormat =
@@ -354,59 +360,74 @@ open class MTLRenderPipelineDescriptor :
     ) {}
 
     open fun tessellationOutputWindingOrder(): MTLWinding = MTLWinding.Clockwise
+
     open fun setTessellationOutputWindingOrder(tessellation_output_winding_order: MTLWinding) {}
 
     open fun vertexBuffers(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
+
     open fun fragmentBuffers(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
 
     open fun supportIndirectCommandBuffers(): Boolean = false
+
     open fun setSupportIndirectCommandBuffers(support_indirect_command_buffers: Boolean) {}
 
     open fun binaryArchives(): NSArray<MTLBinaryArchive>? = null
+
     open fun setBinaryArchives(binary_archives: NSArray<MTLBinaryArchive>?) {}
 
     open fun vertexPreloadedLibraries(): NSArray<MTLDynamicLibrary> = NSArray()
+
     open fun setVertexPreloadedLibraries(
         vertex_preloaded_libraries: NSArray<MTLDynamicLibrary>,
     ) {}
 
     open fun fragmentPreloadedLibraries(): NSArray<MTLDynamicLibrary> = NSArray()
+
     open fun setFragmentPreloadedLibraries(
         fragment_preloaded_libraries: NSArray<MTLDynamicLibrary>,
     ) {}
 
     open fun vertexLinkedFunctions(): MTLLinkedFunctions = MTLLinkedFunctions()
+
     open fun setVertexLinkedFunctions(vertex_linked_functions: MTLLinkedFunctions?) {}
 
     open fun fragmentLinkedFunctions(): MTLLinkedFunctions = MTLLinkedFunctions()
+
     open fun setFragmentLinkedFunctions(fragment_linked_functions: MTLLinkedFunctions?) {}
 
     open fun supportAddingVertexBinaryFunctions(): Boolean = false
+
     open fun setSupportAddingVertexBinaryFunctions(
         support_adding_vertex_binary_functions: Boolean,
     ) {}
 
     open fun supportAddingFragmentBinaryFunctions(): Boolean = false
+
     open fun setSupportAddingFragmentBinaryFunctions(
         support_adding_fragment_binary_functions: Boolean,
     ) {}
 
     open fun maxVertexCallStackDepth(): NSUInteger = 1uL
+
     open fun setMaxVertexCallStackDepth(max_vertex_call_stack_depth: NSUInteger) {}
 
     open fun maxFragmentCallStackDepth(): NSUInteger = 1uL
+
     open fun setMaxFragmentCallStackDepth(max_fragment_call_stack_depth: NSUInteger) {}
 
     open fun reset() {}
 
     open fun shaderValidation(): MTLShaderValidation = MTLShaderValidation.Default
+
     open fun setShaderValidation(shader_validation: MTLShaderValidation) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun default_retained(): MTLRenderPipelineDescriptor = new()
+
         fun init(): MTLRenderPipelineDescriptor = MTLRenderPipelineDescriptor()
+
         fun new(): MTLRenderPipelineDescriptor = MTLRenderPipelineDescriptor()
     }
 }
@@ -418,20 +439,22 @@ open class MTLRenderPipelineFunctionsDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLRenderPipelineFunctionsDescriptor
 
     open fun vertexAdditionalBinaryFunctions(): NSArray<MTLFunction>? = null
+
     open fun setVertexAdditionalBinaryFunctions(
         vertex_additional_binary_functions: NSArray<MTLFunction>?,
     ) {}
 
     open fun fragmentAdditionalBinaryFunctions(): NSArray<MTLFunction>? = null
+
     open fun setFragmentAdditionalBinaryFunctions(
         fragment_additional_binary_functions: NSArray<MTLFunction>?,
     ) {}
 
     open fun tileAdditionalBinaryFunctions(): NSArray<MTLFunction>? = null
+
     open fun setTileAdditionalBinaryFunctions(
         tile_additional_binary_functions: NSArray<MTLFunction>?,
     ) {}
@@ -440,6 +463,7 @@ open class MTLRenderPipelineFunctionsDescriptor :
 
     companion object {
         fun init(): MTLRenderPipelineFunctionsDescriptor = MTLRenderPipelineFunctionsDescriptor()
+
         fun new(): MTLRenderPipelineFunctionsDescriptor = MTLRenderPipelineFunctionsDescriptor()
     }
 }
@@ -449,17 +473,29 @@ open class MTLRenderPipelineFunctionsDescriptor :
  */
 interface MTLRenderPipelineState : NSObjectProtocol {
     fun label(): NSString? = null
+
     fun device(): MTLDevice
+
     fun maxTotalThreadsPerThreadgroup(): NSUInteger = 0uL
+
     fun threadgroupSizeMatchesTileSize(): Boolean = false
+
     fun imageblockSampleLength(): NSUInteger = 0uL
+
     fun imageblockMemoryLengthForDimensions(imageblock_dimensions: MTLSize): NSUInteger = 0uL
+
     fun supportIndirectCommandBuffers(): Boolean = false
+
     fun maxTotalThreadsPerObjectThreadgroup(): NSUInteger = 0uL
+
     fun maxTotalThreadsPerMeshThreadgroup(): NSUInteger = 0uL
+
     fun objectThreadExecutionWidth(): NSUInteger = 0uL
+
     fun meshThreadExecutionWidth(): NSUInteger = 0uL
+
     fun maxTotalThreadgroupsPerMeshGrid(): NSUInteger = 0uL
+
     fun gpuResourceID(): MTLResourceID = MTLResourceID()
 
     fun functionHandleWithFunction_stage(
@@ -491,10 +527,10 @@ open class MTLTileRenderPipelineColorAttachmentDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLTileRenderPipelineColorAttachmentDescriptor
 
     open fun pixelFormat(): MTLPixelFormat = MTLPixelFormat.Invalid
+
     open fun setPixelFormat(pixel_format: MTLPixelFormat) {}
 
     override fun copy(): Any = this
@@ -514,7 +550,6 @@ open class MTLTileRenderPipelineColorAttachmentDescriptor :
 open class MTLTileRenderPipelineColorAttachmentDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(attachment_index: NSUInteger): MTLTileRenderPipelineColorAttachmentDescriptor =
         MTLTileRenderPipelineColorAttachmentDescriptor()
 
@@ -539,53 +574,64 @@ open class MTLTileRenderPipelineDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLTileRenderPipelineDescriptor
 
     open fun label(): NSString? = null
+
     open fun setLabel(label: NSString?) {}
 
     open fun tileFunction(): MTLFunction? = null
+
     open fun setTileFunction(tile_function: MTLFunction) {}
 
     open fun rasterSampleCount(): NSUInteger = 1uL
+
     open fun setRasterSampleCount(raster_sample_count: NSUInteger) {}
 
     open fun colorAttachments(): MTLTileRenderPipelineColorAttachmentDescriptorArray =
         MTLTileRenderPipelineColorAttachmentDescriptorArray()
 
     open fun threadgroupSizeMatchesTileSize(): Boolean = false
+
     open fun setThreadgroupSizeMatchesTileSize(threadgroup_size_matches_tile_size: Boolean) {}
 
     open fun tileBuffers(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
 
     open fun maxTotalThreadsPerThreadgroup(): NSUInteger = 0uL
+
     open fun setMaxTotalThreadsPerThreadgroup(max_total_threads_per_threadgroup: NSUInteger) {}
 
     open fun binaryArchives(): NSArray<MTLBinaryArchive>? = null
+
     open fun setBinaryArchives(binary_archives: NSArray<MTLBinaryArchive>?) {}
 
     open fun preloadedLibraries(): NSArray<MTLDynamicLibrary> = NSArray()
+
     open fun setPreloadedLibraries(preloaded_libraries: NSArray<MTLDynamicLibrary>) {}
 
     open fun linkedFunctions(): MTLLinkedFunctions = MTLLinkedFunctions()
+
     open fun setLinkedFunctions(linked_functions: MTLLinkedFunctions?) {}
 
     open fun supportAddingBinaryFunctions(): Boolean = false
+
     open fun setSupportAddingBinaryFunctions(support_adding_binary_functions: Boolean) {}
 
     open fun maxCallStackDepth(): NSUInteger = 1uL
+
     open fun setMaxCallStackDepth(max_call_stack_depth: NSUInteger) {}
 
     open fun reset() {}
 
     open fun shaderValidation(): MTLShaderValidation = MTLShaderValidation.Default
+
     open fun setShaderValidation(shader_validation: MTLShaderValidation) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLTileRenderPipelineDescriptor = MTLTileRenderPipelineDescriptor()
+
         fun new(): MTLTileRenderPipelineDescriptor = MTLTileRenderPipelineDescriptor()
     }
 }
@@ -597,99 +643,124 @@ open class MTLMeshRenderPipelineDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLMeshRenderPipelineDescriptor
 
     open fun label(): NSString? = null
+
     open fun setLabel(label: NSString?) {}
 
     open fun objectFunction(): MTLFunction? = null
+
     open fun setObjectFunction(object_function: MTLFunction?) {}
 
     open fun meshFunction(): MTLFunction? = null
+
     open fun setMeshFunction(mesh_function: MTLFunction?) {}
 
     open fun fragmentFunction(): MTLFunction? = null
+
     open fun setFragmentFunction(fragment_function: MTLFunction?) {}
 
     open fun maxTotalThreadsPerObjectThreadgroup(): NSUInteger = 0uL
+
     open fun setMaxTotalThreadsPerObjectThreadgroup(
         max_total_threads_per_object_threadgroup: NSUInteger,
     ) {}
 
     open fun maxTotalThreadsPerMeshThreadgroup(): NSUInteger = 0uL
+
     open fun setMaxTotalThreadsPerMeshThreadgroup(
         max_total_threads_per_mesh_threadgroup: NSUInteger,
     ) {}
 
     open fun objectThreadgroupSizeIsMultipleOfThreadExecutionWidth(): Boolean = false
+
     open fun setObjectThreadgroupSizeIsMultipleOfThreadExecutionWidth(
         object_threadgroup_size_is_multiple_of_thread_execution_width: Boolean,
     ) {}
 
     open fun meshThreadgroupSizeIsMultipleOfThreadExecutionWidth(): Boolean = false
+
     open fun setMeshThreadgroupSizeIsMultipleOfThreadExecutionWidth(
         mesh_threadgroup_size_is_multiple_of_thread_execution_width: Boolean,
     ) {}
 
     open fun payloadMemoryLength(): NSUInteger = 0uL
+
     open fun setPayloadMemoryLength(payload_memory_length: NSUInteger) {}
 
     open fun maxTotalThreadgroupsPerMeshGrid(): NSUInteger = 0uL
+
     open fun setMaxTotalThreadgroupsPerMeshGrid(max_total_threadgroups_per_mesh_grid: NSUInteger) {}
 
     open fun objectBuffers(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
+
     open fun meshBuffers(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
+
     open fun fragmentBuffers(): MTLPipelineBufferDescriptorArray = MTLPipelineBufferDescriptorArray()
 
     open fun rasterSampleCount(): NSUInteger = 1uL
+
     open fun setRasterSampleCount(raster_sample_count: NSUInteger) {}
 
     open fun isAlphaToCoverageEnabled(): Boolean = false
+
     open fun setAlphaToCoverageEnabled(alpha_to_coverage_enabled: Boolean) {}
 
     open fun isAlphaToOneEnabled(): Boolean = false
+
     open fun setAlphaToOneEnabled(alpha_to_one_enabled: Boolean) {}
 
     open fun isRasterizationEnabled(): Boolean = true
+
     open fun setRasterizationEnabled(rasterization_enabled: Boolean) {}
 
     open fun maxVertexAmplificationCount(): NSUInteger = 1uL
+
     open fun setMaxVertexAmplificationCount(max_vertex_amplification_count: NSUInteger) {}
 
     open fun colorAttachments(): MTLRenderPipelineColorAttachmentDescriptorArray =
         MTLRenderPipelineColorAttachmentDescriptorArray()
 
     open fun depthAttachmentPixelFormat(): MTLPixelFormat = MTLPixelFormat.Invalid
+
     open fun setDepthAttachmentPixelFormat(depth_attachment_pixel_format: MTLPixelFormat) {}
 
     open fun stencilAttachmentPixelFormat(): MTLPixelFormat = MTLPixelFormat.Invalid
+
     open fun setStencilAttachmentPixelFormat(stencil_attachment_pixel_format: MTLPixelFormat) {}
 
     open fun supportIndirectCommandBuffers(): Boolean = false
+
     open fun setSupportIndirectCommandBuffers(support_indirect_command_buffers: Boolean) {}
 
     open fun binaryArchives(): NSArray<MTLBinaryArchive>? = null
+
     open fun setBinaryArchives(binary_archives: NSArray<MTLBinaryArchive>?) {}
 
     open fun objectLinkedFunctions(): MTLLinkedFunctions = MTLLinkedFunctions()
+
     open fun setObjectLinkedFunctions(object_linked_functions: MTLLinkedFunctions?) {}
 
     open fun meshLinkedFunctions(): MTLLinkedFunctions = MTLLinkedFunctions()
+
     open fun setMeshLinkedFunctions(mesh_linked_functions: MTLLinkedFunctions?) {}
 
     open fun fragmentLinkedFunctions(): MTLLinkedFunctions = MTLLinkedFunctions()
+
     open fun setFragmentLinkedFunctions(fragment_linked_functions: MTLLinkedFunctions?) {}
 
     open fun reset() {}
 
     open fun shaderValidation(): MTLShaderValidation = MTLShaderValidation.Default
+
     open fun setShaderValidation(shader_validation: MTLShaderValidation) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLMeshRenderPipelineDescriptor = MTLMeshRenderPipelineDescriptor()
+
         fun new(): MTLMeshRenderPipelineDescriptor = MTLMeshRenderPipelineDescriptor()
     }
 }

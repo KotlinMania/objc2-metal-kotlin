@@ -6,7 +6,9 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
 /**
  * Metal pixel format.
  */
-data class MTLPixelFormat(val rawValue: NSUInteger) {
+data class MTLPixelFormat(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"

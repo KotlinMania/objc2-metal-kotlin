@@ -4,13 +4,13 @@ package io.github.kotlinmania.objc2metal.generated
 import io.github.kotlinmania.objc2foundation.NSArray
 import io.github.kotlinmania.objc2foundation.NSCopying
 import io.github.kotlinmania.objc2foundation.NSData
-import io.github.kotlinmania.objc2foundation.NSErrorDomain
 import io.github.kotlinmania.objc2foundation.NSInteger
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSRange
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
+import io.github.kotlinmania.objc2foundation.generated.NSErrorDomain
 
 typealias MTLCommonCounter = NSString
 
@@ -81,6 +81,7 @@ interface MTLCounter : NSObjectProtocol {
 
 interface MTLCounterSet : NSObjectProtocol {
     fun name(): NSString
+
     fun counters(): NSArray<MTLCounter>
 }
 
@@ -88,33 +89,40 @@ open class MTLCounterSampleBufferDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLCounterSampleBufferDescriptor
 
     open fun counterSet(): MTLCounterSet? = null
+
     open fun setCounterSet(counter_set: MTLCounterSet?) {}
 
     open fun label(): NSString = NSString("")
+
     open fun setLabel(label: NSString) {}
 
     open fun storageMode(): MTLStorageMode = MTLStorageMode.Shared
+
     open fun setStorageMode(storage_mode: MTLStorageMode) {}
 
     open fun sampleCount(): NSUInteger = 0uL
+
     open fun setSampleCount(sample_count: NSUInteger) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLCounterSampleBufferDescriptor = MTLCounterSampleBufferDescriptor()
+
         fun new(): MTLCounterSampleBufferDescriptor = MTLCounterSampleBufferDescriptor()
     }
 }
 
 interface MTLCounterSampleBuffer : NSObjectProtocol {
     fun device(): MTLDevice
+
     fun label(): NSString
+
     fun sampleCount(): NSUInteger
+
     fun resolveCounterRange(range: NSRange): NSData?
 }
 

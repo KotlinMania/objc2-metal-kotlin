@@ -10,7 +10,9 @@ import io.github.kotlinmania.objc2metal.MTLResourceStorageModeShift
 /**
  * Options for setPurgeable call.
  */
-data class MTLPurgeableState(val rawValue: NSUInteger) {
+data class MTLPurgeableState(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -25,7 +27,9 @@ data class MTLPurgeableState(val rawValue: NSUInteger) {
 /**
  * Describes what CPU cache mode is used for the CPU's mapping of a resource.
  */
-data class MTLCPUCacheMode(val rawValue: NSUInteger) {
+data class MTLCPUCacheMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -38,7 +42,9 @@ data class MTLCPUCacheMode(val rawValue: NSUInteger) {
 /**
  * Describes location and CPU mapping of a resource.
  */
-data class MTLStorageMode(val rawValue: NSUInteger) {
+data class MTLStorageMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -53,7 +59,9 @@ data class MTLStorageMode(val rawValue: NSUInteger) {
 /**
  * Describes how hazard tracking is performed.
  */
-data class MTLHazardTrackingMode(val rawValue: NSUInteger) {
+data class MTLHazardTrackingMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -67,7 +75,9 @@ data class MTLHazardTrackingMode(val rawValue: NSUInteger) {
 /**
  * Resource options packed bitflags.
  */
-data class MTLResourceOptions(val rawValue: NSUInteger) {
+data class MTLResourceOptions(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -92,15 +102,26 @@ data class MTLResourceOptions(val rawValue: NSUInteger) {
  */
 interface MTLResource : MTLAllocation {
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun device(): MTLDevice
+
     fun cpuCacheMode(): MTLCPUCacheMode
+
     fun storageMode(): MTLStorageMode
+
     fun hazardTrackingMode(): MTLHazardTrackingMode
+
     fun resourceOptions(): MTLResourceOptions
+
     fun setPurgeableState(state: MTLPurgeableState): MTLPurgeableState
+
     fun heap(): MTLHeap?
+
     fun heapOffset(): NSUInteger
+
     fun makeAliasable()
+
     fun isAliasable(): Boolean
 }

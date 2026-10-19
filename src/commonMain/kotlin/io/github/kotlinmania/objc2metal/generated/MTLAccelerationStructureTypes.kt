@@ -25,12 +25,13 @@ data class MTLPackedFloatQuaternion(
  * A 4x3 matrix of packed 3D float vectors.
  */
 data class MTLPackedFloat4x3(
-    val columns: List<MTLPackedFloat3> = listOf(
-        MTLPackedFloat3(),
-        MTLPackedFloat3(),
-        MTLPackedFloat3(),
-        MTLPackedFloat3(),
-    ),
+    val columns: List<MTLPackedFloat3> =
+        listOf(
+            MTLPackedFloat3(),
+            MTLPackedFloat3(),
+            MTLPackedFloat3(),
+            MTLPackedFloat3(),
+        ),
 ) {
     companion object {
         const val ENCODING: String = "{_MTLPackedFloat4x3=[4{_MTLPackedFloat3=(?={?=fff}[3f])}]}"

@@ -9,7 +9,9 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
 /**
  * Status of a command buffer.
  */
-data class MTLCommandBufferStatus(val rawValue: NSUInteger) {
+data class MTLCommandBufferStatus(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -26,7 +28,9 @@ data class MTLCommandBufferStatus(val rawValue: NSUInteger) {
 /**
  * Error codes for command buffer execution.
  */
-data class MTLCommandBufferError(val rawValue: NSUInteger) {
+data class MTLCommandBufferError(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -49,7 +53,9 @@ data class MTLCommandBufferError(val rawValue: NSUInteger) {
 /**
  * Error options for command buffer execution.
  */
-data class MTLCommandBufferErrorOption(val rawValue: NSUInteger) {
+data class MTLCommandBufferErrorOption(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -59,7 +65,9 @@ data class MTLCommandBufferErrorOption(val rawValue: NSUInteger) {
 /**
  * Command encoder error state.
  */
-data class MTLCommandEncoderErrorState(val rawValue: Long) {
+data class MTLCommandEncoderErrorState(
+    val rawValue: Long,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -75,7 +83,9 @@ data class MTLCommandEncoderErrorState(val rawValue: Long) {
 /**
  * Dispatch type for command buffers.
  */
-data class MTLDispatchType(val rawValue: NSUInteger) {
+data class MTLDispatchType(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -105,18 +115,32 @@ open class MTLCommandBufferDescriptor : NSObject() {
  */
 interface MTLCommandBuffer : NSObjectProtocol {
     fun device(): MTLDevice
+
     fun commandQueue(): MTLCommandQueue
+
     fun retainedReferences(): Boolean
+
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun status(): MTLCommandBufferStatus
+
     fun enqueue()
+
     fun commit()
+
     fun addScheduledHandler(block: MTLCommandBufferHandler)
+
     fun waitUntilScheduled()
+
     fun addCompletedHandler(block: MTLCommandBufferHandler)
+
     fun waitUntilCompleted()
+
     fun renderCommandEncoderWithDescriptor(renderPassDescriptor: MTLRenderPassDescriptor): MTLRenderCommandEncoder?
+
     fun computeCommandEncoder(): MTLComputeCommandEncoder?
+
     fun blitCommandEncoder(): MTLBlitCommandEncoder?
 }

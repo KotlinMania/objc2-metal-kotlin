@@ -2,12 +2,12 @@
 package io.github.kotlinmania.objc2metal.generated
 
 import io.github.kotlinmania.objc2foundation.NSCopying
-import io.github.kotlinmania.objc2foundation.NSErrorDomain
 import io.github.kotlinmania.objc2foundation.NSInteger
 import io.github.kotlinmania.objc2foundation.NSObject
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
+import io.github.kotlinmania.objc2foundation.generated.NSErrorDomain
 
 /**
  * Level of a log entry.
@@ -42,19 +42,21 @@ open class MTLLogStateDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLLogStateDescriptor
 
     open fun level(): MTLLogLevel = MTLLogLevel.Undefined
+
     open fun setLevel(level: MTLLogLevel) {}
 
     open fun bufferSize(): NSInteger = 1024L
+
     open fun setBufferSize(buffer_size: NSInteger) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLLogStateDescriptor = MTLLogStateDescriptor()
+
         fun new(): MTLLogStateDescriptor = MTLLogStateDescriptor()
     }
 }

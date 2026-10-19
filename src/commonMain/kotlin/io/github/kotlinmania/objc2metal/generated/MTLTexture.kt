@@ -1,15 +1,17 @@
 // port-lint: source generated/MTLTexture.rs
 package io.github.kotlinmania.objc2metal.generated
 
-import io.github.kotlinmania.objc2foundation.NSRange
 import io.github.kotlinmania.objc2foundation.NSObject
+import io.github.kotlinmania.objc2foundation.NSRange
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
 
 /**
  * Type of a Metal texture.
  */
-data class MTLTextureType(val rawValue: NSUInteger) {
+data class MTLTextureType(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -30,7 +32,9 @@ data class MTLTextureType(val rawValue: NSUInteger) {
 /**
  * Texture swizzle value.
  */
-data class MTLTextureSwizzle(val rawValue: UByte) {
+data class MTLTextureSwizzle(
+    val rawValue: UByte,
+) {
     companion object {
         const val ENCODING: String = "C"
         const val ENCODING_REF: String = "^C"
@@ -72,13 +76,16 @@ data class MTLTextureSwizzleChannels(
  */
 open class MTLSharedTextureHandle : NSObject() {
     fun device(): MTLDevice = error("Unimplemented")
+
     fun label(): NSString? = null
 }
 
 /**
  * Options declaring how the texture will be used over its lifetime.
  */
-data class MTLTextureUsage(val rawValue: NSUInteger) {
+data class MTLTextureUsage(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -95,7 +102,9 @@ data class MTLTextureUsage(val rawValue: NSUInteger) {
 /**
  * Texture compression type.
  */
-data class MTLTextureCompressionType(val rawValue: Long) {
+data class MTLTextureCompressionType(
+    val rawValue: Long,
+) {
     companion object {
         const val ENCODING: String = "q"
         const val ENCODING_REF: String = "^q"
@@ -180,34 +189,58 @@ open class MTLTextureDescriptor : NSObject() {
  */
 interface MTLTexture : MTLResource {
     fun iosurfacePlane(): NSUInteger
+
     fun textureType(): MTLTextureType
+
     fun pixelFormat(): MTLPixelFormat
+
     fun width(): NSUInteger
+
     fun height(): NSUInteger
+
     fun depth(): NSUInteger
+
     fun mipmapLevelCount(): NSUInteger
+
     fun sampleCount(): NSUInteger
+
     fun arrayLength(): NSUInteger
+
     fun usage(): MTLTextureUsage
+
     fun isShareable(): Boolean
+
     fun isFramebufferOnly(): Boolean
+
     fun firstMipmapInTail(): NSUInteger
+
     fun tailSizeInBytes(): NSUInteger
+
     fun isSparse(): Boolean
+
     fun allowGPUOptimizedContents(): Boolean
+
     fun compressionType(): MTLTextureCompressionType
+
     fun gpuResourceID(): MTLResourceID
+
     fun newTextureViewWithPixelFormat(pixelFormat: MTLPixelFormat): MTLTexture?
+
     fun newTextureViewWithPixelFormat(
         pixelFormat: MTLPixelFormat,
         textureType: MTLTextureType,
         levelRange: NSRange,
         sliceRange: NSRange,
     ): MTLTexture?
+
     fun newSharedTextureHandle(): MTLSharedTextureHandle?
+
     fun remoteStorageTexture(): MTLTexture?
+
     fun newRemoteTextureViewForDevice(device: MTLDevice): MTLTexture?
+
     fun swizzle(): MTLTextureSwizzleChannels
+
     fun newTextureViewWithPixelFormat(
         pixelFormat: MTLPixelFormat,
         textureType: MTLTextureType,

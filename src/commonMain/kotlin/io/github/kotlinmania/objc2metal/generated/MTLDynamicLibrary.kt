@@ -1,10 +1,10 @@
 // port-lint: source generated/MTLDynamicLibrary.rs
 package io.github.kotlinmania.objc2metal.generated
 
-import io.github.kotlinmania.objc2foundation.NSErrorDomain
 import io.github.kotlinmania.objc2foundation.NSObjectProtocol
 import io.github.kotlinmania.objc2foundation.NSString
 import io.github.kotlinmania.objc2foundation.NSUInteger
+import io.github.kotlinmania.objc2foundation.generated.NSErrorDomain
 
 val MTLDynamicLibraryDomain: NSErrorDomain = NSString("MTLDynamicLibraryDomain")
 
@@ -32,7 +32,10 @@ data class MTLDynamicLibraryError(
  */
 interface MTLDynamicLibrary : NSObjectProtocol {
     fun label(): NSString?
+
     fun setLabel(label: NSString?)
+
     fun device(): MTLDevice
+
     fun installName(): NSString
 }

@@ -100,23 +100,27 @@ open class MTLVertexBufferLayoutDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLVertexBufferLayoutDescriptor
 
     open fun stride(): NSUInteger = 0uL
+
     open fun setStride(stride: NSUInteger) {}
 
     open fun stepFunction(): MTLVertexStepFunction = MTLVertexStepFunction.PerVertex
+
     open fun setStepFunction(step_function: MTLVertexStepFunction) {}
 
     open fun stepRate(): NSUInteger = 1uL
+
     open fun setStepRate(step_rate: NSUInteger) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLVertexBufferLayoutDescriptor = MTLVertexBufferLayoutDescriptor()
+
         fun new(): MTLVertexBufferLayoutDescriptor = MTLVertexBufferLayoutDescriptor()
+
         fun default_retained(): MTLVertexBufferLayoutDescriptor = new()
     }
 }
@@ -127,7 +131,6 @@ open class MTLVertexBufferLayoutDescriptor :
 open class MTLVertexBufferLayoutDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(index: NSUInteger): MTLVertexBufferLayoutDescriptor =
         MTLVertexBufferLayoutDescriptor()
 
@@ -138,6 +141,7 @@ open class MTLVertexBufferLayoutDescriptorArray :
 
     companion object {
         fun init(): MTLVertexBufferLayoutDescriptorArray = MTLVertexBufferLayoutDescriptorArray()
+
         fun new(): MTLVertexBufferLayoutDescriptorArray = MTLVertexBufferLayoutDescriptorArray()
     }
 }
@@ -149,23 +153,27 @@ open class MTLVertexAttributeDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLVertexAttributeDescriptor
 
     open fun format(): MTLVertexFormat = MTLVertexFormat.Invalid
+
     open fun setFormat(format: MTLVertexFormat) {}
 
     open fun offset(): NSUInteger = 0uL
+
     open fun setOffset(offset: NSUInteger) {}
 
     open fun bufferIndex(): NSUInteger = 0uL
+
     open fun setBufferIndex(buffer_index: NSUInteger) {}
 
     override fun copy(): Any = this
 
     companion object {
         fun init(): MTLVertexAttributeDescriptor = MTLVertexAttributeDescriptor()
+
         fun new(): MTLVertexAttributeDescriptor = MTLVertexAttributeDescriptor()
+
         fun default_retained(): MTLVertexAttributeDescriptor = new()
     }
 }
@@ -176,7 +184,6 @@ open class MTLVertexAttributeDescriptor :
 open class MTLVertexAttributeDescriptorArray :
     NSObject(),
     NSObjectProtocol {
-
     open fun objectAtIndexedSubscript(index: NSUInteger): MTLVertexAttributeDescriptor =
         MTLVertexAttributeDescriptor()
 
@@ -187,6 +194,7 @@ open class MTLVertexAttributeDescriptorArray :
 
     companion object {
         fun init(): MTLVertexAttributeDescriptorArray = MTLVertexAttributeDescriptorArray()
+
         fun new(): MTLVertexAttributeDescriptorArray = MTLVertexAttributeDescriptorArray()
     }
 }
@@ -198,18 +206,21 @@ open class MTLVertexDescriptor :
     NSObject(),
     NSCopying,
     NSObjectProtocol {
-
     typealias Result = MTLVertexDescriptor
 
     open fun layouts(): MTLVertexBufferLayoutDescriptorArray = MTLVertexBufferLayoutDescriptorArray()
+
     open fun attributes(): MTLVertexAttributeDescriptorArray = MTLVertexAttributeDescriptorArray()
+
     open fun reset() {}
 
     override fun copy(): Any = this
 
     companion object {
         fun vertexDescriptor(): MTLVertexDescriptor = MTLVertexDescriptor()
+
         fun init(): MTLVertexDescriptor = MTLVertexDescriptor()
+
         fun new(): MTLVertexDescriptor = MTLVertexDescriptor()
     }
 }

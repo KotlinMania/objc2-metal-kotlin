@@ -26,9 +26,14 @@ open class MTLComputePipelineDescriptor : NSObject() {
 
 interface MTLComputePipelineState : NSObjectProtocol {
     fun label(): NSString?
+
     fun device(): MTLDevice
+
     fun maxTotalThreadsPerThreadgroup(): NSUInteger
+
     fun threadExecutionWidth(): NSUInteger
+
     fun staticThreadgroupMemoryLength(): NSUInteger
+
     fun supportIndirectCommandBuffers(): Boolean
 }

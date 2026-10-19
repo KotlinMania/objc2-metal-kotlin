@@ -16,15 +16,26 @@ open class MTLResidencySetDescriptor : NSObject() {
 
 interface MTLResidencySet : NSObjectProtocol {
     fun device(): MTLDevice
+
     fun label(): NSString?
+
     fun allocatedSize(): ULong
+
     fun requestResidency()
+
     fun endResidency()
+
     fun addAllocation(allocation: MTLAllocation)
+
     fun removeAllocation(allocation: MTLAllocation)
+
     fun removeAllAllocations()
+
     fun containsAllocation(anAllocation: MTLAllocation): Boolean
+
     fun allAllocations(): NSArray<MTLAllocation>
+
     fun allocationCount(): NSUInteger
+
     fun commit()
 }

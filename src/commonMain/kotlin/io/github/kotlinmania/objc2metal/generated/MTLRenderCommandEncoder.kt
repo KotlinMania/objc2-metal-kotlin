@@ -6,7 +6,9 @@ import io.github.kotlinmania.objc2foundation.NSUInteger
 /**
  * Geometric primitive types for drawing commands.
  */
-data class MTLPrimitiveType(val rawValue: NSUInteger) {
+data class MTLPrimitiveType(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -22,7 +24,9 @@ data class MTLPrimitiveType(val rawValue: NSUInteger) {
 /**
  * Visibility result modes for occlusion testing.
  */
-data class MTLVisibilityResultMode(val rawValue: NSUInteger) {
+data class MTLVisibilityResultMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -68,7 +72,9 @@ data class MTLViewport(
 /**
  * Modes for culling primitives.
  */
-data class MTLCullMode(val rawValue: NSUInteger) {
+data class MTLCullMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -82,7 +88,9 @@ data class MTLCullMode(val rawValue: NSUInteger) {
 /**
  * Winding order for front-facing primitives.
  */
-data class MTLWinding(val rawValue: NSUInteger) {
+data class MTLWinding(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -95,7 +103,9 @@ data class MTLWinding(val rawValue: NSUInteger) {
 /**
  * Modes for depth clipping.
  */
-data class MTLDepthClipMode(val rawValue: NSUInteger) {
+data class MTLDepthClipMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -108,7 +118,9 @@ data class MTLDepthClipMode(val rawValue: NSUInteger) {
 /**
  * Options for filling triangles.
  */
-data class MTLTriangleFillMode(val rawValue: NSUInteger) {
+data class MTLTriangleFillMode(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -206,7 +218,9 @@ data class MTLTriangleTessellationFactorsHalf(
 /**
  * Render stages options.
  */
-data class MTLRenderStages(val rawValue: NSUInteger) {
+data class MTLRenderStages(
+    val rawValue: NSUInteger,
+) {
     companion object {
         const val ENCODING: String = "Q"
         const val ENCODING_REF: String = "^Q"
@@ -218,9 +232,14 @@ data class MTLRenderStages(val rawValue: NSUInteger) {
  */
 interface MTLRenderCommandEncoder : MTLCommandEncoder {
     fun setViewport(viewport: MTLViewport)
+
     fun setViewports(viewports: List<MTLViewport>)
+
     fun setCullMode(cullMode: MTLCullMode)
+
     fun setFrontFacingWinding(frontFacingWinding: MTLWinding)
+
     fun setScissorRect(rect: MTLScissorRect)
+
     fun setScissorRects(scissorRects: List<MTLScissorRect>)
 }
