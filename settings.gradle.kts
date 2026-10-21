@@ -16,12 +16,3 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "objc2-metal-kotlin"
-
-listOf(
-    "../objc2-foundation-kotlin",
-    "../bitflags-kotlin",
-).forEach { path ->
-    if (file(path).exists()) {
-        includeBuild(path)
-    }
-}
